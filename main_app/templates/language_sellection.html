@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesa Manager - Select Language</title>
+    <style>
+        /* CSS to style the language selection page */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('your-background-image.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .selection-container {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .language-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .language-button {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="selection-container">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Pesa Manager Logo" class="logo">
+
+        <!-- Language Selection Text -->
+        <div class="language-text">Select Your Language</div>
+
+        <!-- Language Buttons -->
+        <button class="language-button" onclick="selectLanguage('sw')">Kiswahili</button>
+        <button class="language-button" onclick="selectLanguage('en')">English</button>
+        <button class="language-button" onclick="selectLanguage('fr')">French</button>
+    </div>
+
+    <script>
+        // JavaScript to handle language selection
+        function selectLanguage(languageCode) {
+            // Redirect to the appropriate URL or handle language setting logic
+            window.location.href = '/set-language?lang=' + languageCode; // Example: Redirect to a URL for setting language
+        }
+    </script>
+</body>
+</html>

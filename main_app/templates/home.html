@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesa Manager - Home</title>
+    <style>
+        /* CSS to style the home page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('your-background-image.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .user-type {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            background-color: gold;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+
+        .dashboard-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Pesa Manager Logo" class="logo">
+
+        <!-- User Type Greeting -->
+        <div class="user-type">Welcome, {{ user.username }}!</div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="navigateTo('my_account')">My Account</button>
+            <button class="nav-button" onclick="navigateTo('live_ranking')">Live Ranking</button>
+            <button class="nav-button" onclick="navigateTo('about_us')">About Us</button>
+        </div>
+
+        <!-- Dashboard Sections Based on User Type -->
+        {% if user.profile.user_type == 'Entrepreneur' %}
+        <div class="dashboard-section">
+            <h3>Entrepreneur Dashboard</h3>
+            <p>Manage your business, view expenditures, and analyze sales data.</p>
+            <a href="{% url 'entrepreneur_dashboard' %}" class="nav-button">Go to Entrepreneur Dashboard</a>
+        </div>
+        {% elif user.profile.user_type == 'RevenueOfficer' %}
+        <div class="dashboard-section">
+            <h3>Revenue Officer Dashboard</h3>
+            <p>View and generate tax reports, monitor compliance, and access messages.</p>
+            <a href="{% url 'revenue_officer_dashboard' %}" class="nav-button">Go to Revenue Officer Dashboard</a>
+        </div>
+        {% elif user.profile.user_type == 'Investor' %}
+        <div class="dashboard-section">
+            <h3>Investor Dashboard</h3>
+            <p>Discover investment opportunities, view rankings, and track performance.</p>
+            <a href="{% url 'investor_dashboard' %}" class="nav-button">Go to Investor Dashboard</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // JavaScript to handle navigation
+        function navigateTo(page) {
+            switch (page) {
+                case 'my_account':
+                    window.location.href = "{% url 'profile' %}";
+                    break;
+                case 'live_ranking':
+                    window.location.href = "#"; // Update with the actual URL
+                    break;
+                case 'about_us':
+                    window.location.href = "{% url 'about_us' %}";
+                    break;
+                default:
+                    console.error('Unknown page:', page);
+            }
+        }
+    </script>
+</body>
+</html>

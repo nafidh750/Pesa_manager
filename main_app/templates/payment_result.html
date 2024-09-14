@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Result</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static 'background.jpg' %}'); /* Your background image */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .result {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .result p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .success {
+            color: #28a745;
+        }
+        .failure {
+            color: #dc3545;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Result</h1>
+        <div class="result">
+            {% if success %}
+            <p class="success">Your payment was successful!</p>
+            <p>Transaction ID: {{ transaction_id }}</p>
+            <p>Amount: ${{ amount }}</p>
+            {% else %}
+            <p class="failure">Your payment failed.</p>
+            <p>Error Message: {{ error_message }}</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'payment' %}" class="btn">Return to Payment Page</a>
+    </div>
+</body>
+</html>

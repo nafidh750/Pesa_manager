@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static 'background.jpg' %}'); /* Your background image */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .dashboard-section {
+            margin: 20px 0;
+        }
+        .dashboard-section h2 {
+            margin-bottom: 10px;
+        }
+        .card {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 16px;
+        }
+        .card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Entrepreneur Dashboard</h1>
+        
+        <div class="dashboard-section">
+            <h2>Performance Overview</h2>
+            <div class="card">
+                <div class="card-title">Revenue</div>
+                <div class="card-content">$12,345</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Expenses</div>
+                <div class="card-content">$8,765</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Net Profit</div>
+                <div class="card-content">$3,580</div>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Tasks & Goals</h2>
+            <div class="card">
+                <div class="card-title">Upcoming Tasks</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Review Q3 Marketing Strategy</li>
+                        <li>Finalize Product Launch Plan</li>
+                        <li>Meeting with Investors</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Goals</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Increase Revenue by 20% in Q4</li>
+                        <li>Expand into Two New Markets</li>
+                        <li>Launch New Product Line</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Recent Activities</h2>
+            <div class="card">
+                <div class="card-title">Recent Transactions</div>
+                <div class="card-content">
+                    <ul>
+                        <li>Payment from Client A: $1,500</li>
+                        <li>Expense for Office Supplies: $200</li>
+                        <li>Payment to Vendor B: $500</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="{% url 'add_task' %}" class="btn">Add New Task</a>
+            <a href="{% url 'generate_report' %}" class="btn">Generate Report</a>
+        </div>
+    </div>
+</body>
+</html>

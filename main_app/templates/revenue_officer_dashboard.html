@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Officer Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static 'background.jpg' %}'); /* Your background image */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .dashboard-section {
+            margin: 20px 0;
+        }
+        .dashboard-section h2 {
+            margin-bottom: 10px;
+        }
+        .card {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 16px;
+        }
+        .card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Revenue Officer Dashboard</h1>
+
+        <div class="dashboard-section">
+            <h2>Revenue Overview</h2>
+            <div class="card">
+                <div class="card-title">Total Revenue</div>
+                <div class="card-content">$15,000</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Pending Payments</div>
+                <div class="card-content">$2,500</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Monthly Revenue</div>
+                <div class="card-content">$5,000</div>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Recent Transactions</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2024-09-01</td>
+                            <td>Payment from Client A</td>
+                            <td>$1,200</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-02</td>
+                            <td>Payment from Client B</td>
+                            <td>$800</td>
+                            <td>Completed</td>
+                        </tr>
+                        <tr>
+                            <td>2024-09-03</td>
+                            <td>Refund to Client C</td>
+                            <td>$150</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Reports</h2>
+            <div class="card">
+                <div class="card-title">Generate Revenue Report</div>
+                <div class="card-content">
+                    <a href="{% url 'generate_revenue_report' %}" class="btn">Generate Report</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="{% url 'add_transaction' %}" class="btn">Add New Transaction</a>
+            <a href="{% url 'view_transactions' %}" class="btn">View All Transactions</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesa Manager - Profile</title>
+    <style>
+        /* CSS for styling the profile page */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('your-background-image.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .update-button {
+            width: 100%;
+            padding: 10px;
+            background-color: gold;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .update-button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Pesa Manager Logo" class="logo">
+
+        <!-- Profile Picture -->
+        <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+
+        <!-- Profile Update Form -->
+        <form method="post" action="{% url 'update_profile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="username" class="form-control" value="{{ user.username }}" readonly>
+
+            <input type="text" name="email" class="form-control" value="{{ user.email }}" required>
+
+            <select name="user_type" class="form-control" required>
+                <option value="Entrepreneur" {% if user.profile.user_type == 'Entrepreneur' %}selected{% endif %}>Entrepreneur</option>
+                <option value="RevenueOfficer" {% if user.profile.user_type == 'RevenueOfficer' %}selected{% endif %}>Revenue Officer</option>
+                <option value="Investor" {% if user.profile.user_type == 'Investor' %}selected{% endif %}>Investor/Normal User</option>
+            </select>
+
+            <label for="profile_picture">Change Profile Picture:</label>
+            <input type="file" name="profile_picture" id="profile_picture" class="form-control">
+
+            <button type="submit" class="update-button">Update Profile</button>
+        </form>
+    </div>
+</body>
+</html>

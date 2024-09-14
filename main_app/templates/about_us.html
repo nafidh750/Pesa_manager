@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static 'background.jpg' %}'); /* Your background image */
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .team-member h3 {
+            margin: 0;
+        }
+        .team-member p {
+            margin: 5px 0 0;
+        }
+        .team-member-container {
+            margin-top: 20px;
+        }
+        .team-member-container h2 {
+            margin-bottom: 10px;
+        }
+        .team-member-container p {
+            margin-top: 0;
+        }
+        .contact {
+            margin-top: 30px;
+        }
+        .contact p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <section class="team-member-container">
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <img src="{% static 'team_member1.jpg' %}" alt="Team Member 1">
+                <div>
+                    <h3>John Doe</h3>
+                    <p>CEO & Founder</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'team_member2.jpg' %}" alt="Team Member 2">
+                <div>
+                    <h3>Jane Smith</h3>
+                    <p>Chief Technology Officer</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+                </div>
+            </div>
+            <!-- Add more team members as needed -->
+        </section>
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>Email: contact@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Address: 123 Main Street, Hometown, Country</p>
+        </section>
+    </div>
+</body>
+</html>

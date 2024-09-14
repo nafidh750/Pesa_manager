@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesa Manager - Sign In</title>
+    <style>
+        /* CSS for styling the sign-in page */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('your-background-image.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .sign-in-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .sign-in-button {
+            width: 100%;
+            padding: 10px;
+            background-color: gold;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .sign-in-button:hover {
+            background-color: #e6b800; /* Darker gold on hover */
+        }
+
+        .user-type-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-type-button:hover {
+            background-color: #555; /* Lighter on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="sign-in-container">
+        <!-- Logo -->
+        <img src="your-logo.png" alt="Pesa Manager Logo" class="logo">
+
+        <!-- Sign In Form -->
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+            <!-- Sign In Button -->
+            <button type="submit" class="sign-in-button">Sign In</button>
+        </form>
+
+        <!-- User Type Selection -->
+        <button class="user-type-button" onclick="selectUserType('entrepreneur')">Entrepreneur</button>
+        <button class="user-type-button" onclick="selectUserType('revenue_officer')">Revenue Officer</button>
+        <button class="user-type-button" onclick="selectUserType('investor')">Investor/Normal User</button>
+    </div>
+
+    <script>
+        // JavaScript to handle user type selection
+        function selectUserType(userType) {
+            // Redirect or handle user type logic
+            alert("Selected User Type: " + userType); // Example action
+            // Add your custom logic here for handling user type selection
+        }
+    </script>
+</body>
+</html>
