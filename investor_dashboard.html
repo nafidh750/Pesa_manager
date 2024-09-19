@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static "main_app/static/images/img1.jpeg" %}');
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #343a40;
+            color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .sidebar a.active, .sidebar a:hover {
+            background: #495057;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .section-header {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .dashboard-section {
+            display: none;
+        }
+        .dashboard-section.active {
+            display: block;
+        }
+        .form-control {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Investor Dashboard</h2>
+        <a href="#" data-target="#profile" class="nav-link active">My Account</a>
+        <a href="#" data-target="#live-ranking" class="nav-link">Live Ranking</a>
+        <a href="#" data-target="#about-us" class="nav-link">About Us</a>
+    </div>
+
+    <div class="content">
+        <!-- My Account Section -->
+        <div id="profile" class="dashboard-section active">
+            <div class="section-header">
+                <h2>My Account</h2>
+            </div>
+
+            <!-- Profile Picture Update -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Update Profile Picture</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        <input type="file" name="profile_picture" class="form-control">
+                        <button type="submit" class="btn btn-primary mt-2">Update Picture</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Personal Information Update -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Update Profile Information</h5>
+                    <form method="post">
+                        <input type="text" name="name" class="form-control" placeholder="Full Name">
+                        <input type="email" name="email" class="form-control" placeholder="Email Address">
+                        <button type="submit" class="btn btn-primary">Update Information</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Inbox/Notifications -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Inbox/Notifications</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Message from Entrepreneur A</li>
+                        <li class="list-group-item">New Business Update from Entrepreneur B</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Send a Message</h5>
+                    <form method="post">
+                        <textarea class="form-control mb-2" rows="3" placeholder="Write a message..."></textarea>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Ranking Section -->
+        <div id="live-ranking" class="dashboard-section">
+            <div class="section-header">
+                <h2>Live Ranking</h2>
+            </div>
+
+            <!-- Ranking Filter -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <select class="form-control" id="ranking-filter">
+                        <option value="top-sales">Top Sales</option>
+                        <option value="top-revenue">Top Revenue</option>
+                        <option value="last-24h">Last 24 Hours</option>
+                        <option value="last-week">Last Week</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Ranking Table -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Entrepreneur</th>
+                        <th>Business</th>
+                        <th>Sales (TSh)</th>
+                        <th>Revenue (TSh)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Entrepreneur A</td>
+                        <td>Business A</td>
+                        <td>500,000</td>
+                        <td>450,000</td>
+                        <td><button class="btn btn-primary">Send Request</button></td>
+                    </tr>
+                    <tr>
+                        <td>Entrepreneur B</td>
+                        <td>Business B</td>
+                        <td>400,000</td>
+                        <td>350,000</td>
+                        <td><button class="btn btn-primary">Send Request</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- About Us Section -->
+        <div id="about-us" class="dashboard-section">
+            <div class="section-header">
+                <h2>About Us</h2>
+            </div>
+
+            <!-- Carousel for About Us -->
+            <div id="aboutCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://example.com/slide1.jpg" class="d-block w-100" alt="Economic Growth">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Empowering Entrepreneurs</h5>
+                            <p>Pesa Manager helps small businesses thrive in Tanzania.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://example.com/slide2.jpg" class="d-block w-100" alt="Business Support">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Boosting Local Economies</h5>
+                            <p>We are committed to supporting local entrepreneurs to grow their businesses.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.sidebar a').click(function(e) {
+                e.preventDefault();
+                var target = $(this).data('target');
+
+                // Hide all sections and show the clicked one
+                $('.dashboard-section').removeClass('active');
+                $(target).addClass('active');
+
+                // Remove active class from all sidebar links
+                $('.sidebar a').removeClass('active');
+
+                // Add active class to the clicked link
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+    
+
+    <!-- Chatbot Toggle Button -->
+    <div class="fixed-bottom p-3" style="text-align: right;">
+        <button class="btn btn-dark" id="toggleChatbotButton" onclick="toggleChatbot();">
+            <i class="fas fa-comments fa-2x"></i> PesaBot
+        </button>
+    </div>
+    
+
+    <!-- Embedded Chatbot Scripts -->
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "9IA7LUAeu8XNt5B5CVCUT",
+            domain: "www.chatbase.co"
+        }
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js" chatbotId="9IA7LUAeu8XNt5B5CVCUT" domain="www.chatbase.co" defer></script>
+
+    <!-- JavaScript to Toggle Chatbot -->
+    <script>
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chatbot');
+            var toggleButton = document.getElementById('toggleChatbotButton');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'flex';
+                toggleButton.style.display = 'none';
+            } else {
+                chatbot.style.display = 'none';
+                toggleButton.style.display = 'block';
+            }
+        }
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+</body>
+</html>

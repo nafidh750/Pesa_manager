@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur Dashboard</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://example.com/background.jpg'); /* Replace with actual background */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            margin-top: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: none;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .dashboard-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid #007bff;
+        }
+
+        .performance-card {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .performance-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .performance-card p {
+            font-size: 1.5rem;
+        }
+
+        .recent-transactions {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .recent-transactions h4 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .recent-transactions ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recent-transactions .list-group-item {
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .recent-transactions .list-group-item:last-child {
+            border-bottom: none;
+        }
+
+        .management-section {
+            margin-top: 30px;
+        }
+
+        .management-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .management-section .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="dashboard-container text-center">
+        <!-- Dashboard Header -->
+        <h1>Entrepreneur Dashboard</h1>
+
+        <!-- Performance Overview Section -->
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="card performance-card p-4">
+                    <h3>Total Revenue</h3>
+                    <p class="text-success">150,000 TSh</p> <!-- Replace with actual value -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card performance-card p-4">
+                    <h3>Total Expenses</h3>
+                    <p class="text-danger">50,000 TSh</p> <!-- Replace with actual value -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card performance-card p-4">
+                    <h3>Net Profit</h3>
+                    <p class="text-primary">100,000 TSh</p> <!-- Replace with actual value -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Activity Section -->
+        <div class="mt-5">
+            <h2>Business Activity</h2>
+            <div class="recent-transactions p-4 mb-4">
+                <h4>Recent Transactions</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">Payment from Client X: 1,500 TSh</li>
+                    <li class="list-group-item">Expense for Supplies: 300 TSh</li>
+                    <li class="list-group-item">Payment to Vendor Y: 500 TSh</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Management Section -->
+        <div class="management-section mt-5">
+            <h2>Manage Users</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>User A</span>
+                    <a href="#" class="btn btn-custom btn-sm">View Details</a>
+                </li>
+                <li class="list-group-item">
+                    <span>User B</span>
+                    <a href="#" class="btn btn-custom btn-sm">View Details</a>
+                </li>
+                <li class="list-group-item">
+                    <span>User C</span>
+                    <a href="#" class="btn btn-custom btn-sm">View Details</a>
+                </li>
+                <!-- Add more users as needed -->
+            </ul>
+        </div>
+
+        <!-- Task and Report Buttons -->
+        <div class="mt-4">
+            <a href="#" class="btn btn-custom">Add New Task</a> <!-- Replace with actual URL -->
+            <a href="#" class="btn btn-custom">Generate Report</a> <!-- Replace with actual URL -->
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS (optional for dropdowns, modals, etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
